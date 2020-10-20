@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="DB3000_CMANO_CN_1" uuid="cab3bf35-2175-45ec-a8ed-985536eab3da">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\sqlite\DB3000_CMANO_CN_1.db3</jdbc-url>
+    </data-source>
+  </component>
+</project>

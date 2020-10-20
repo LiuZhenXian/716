@@ -1,0 +1,6 @@
+轰-6	H-6K Badger
+提康德罗加导弹舰	CG 47 Ticonderoga [Baseline 0, Mk26]
+阿利伯克级护卫舰	DDG 51 Arleigh Burke [Arleigh Burke Flight I]
+F-16	F-16A Falcon
+歼-20	J-20 Mighty Dragon
+052D型驱逐舰	Type 052D Luyang III [173 Changsha]

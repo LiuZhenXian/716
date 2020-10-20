@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+    <head>
+        <meta charset="utf-8">
+        <title>自定义Marker图标</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <style>
+        body,
+        html,
+        #container {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+        .anchorBL{
+            display: none;
+        }
+        .BMap_cpyCtrl{
+            display: none;
+        }
+
+        </style>
+        <script src="http://api.map.baidu.com/api?v=2.0&ak=yHVldLTpkUqT20S0qFMvRGC709rXOqHK&s=1"></script>
+    </head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script type="text/javascript">
+var map = new BMap.Map('container');
+var point = new BMap.Point(118.875831,24.299353);
+map.centerAndZoom(point, 9);
+pt=[{coordx:118.783844,coordy:24.177041,myIcon:"{% static "img/2.png" %}"},{coordx:120.775352,coordy:24.774806,myIcon:"{% static "img/3.png" %}"}]
+for(var i=0;i<pt.length;i++){
+        var marker = new BMap.Marker(new BMap.Point(pt[i].coordx, pt[i].coordy),{icon:new BMap.Icon(pt[i].myIcon, new BMap.Size(150, 150))});
+        map.addOverlay(marker);
+}
+
+var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+/*缩放控件type有四种类型:
+BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+
+//添加控件和比例尺
+map.addControl(top_left_control);
+map.addControl(top_left_navigation);
+
+</script>
