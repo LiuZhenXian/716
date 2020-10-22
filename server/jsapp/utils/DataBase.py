@@ -7,10 +7,7 @@ def Merge(dict1, dict2):
 class DataBase():
     def __init__(self,dbname):#connectdb
         self.dbname = dbname
-        self.conn = sqlite3.connect(self.dbname)
-        self.conn.row_factory = self.dict_factory
-        self.conn.cursor()
-        # self.openConn()
+        self.openConn()
 
     def dict_factory(self, cursor, row):
         d = {}
@@ -34,11 +31,11 @@ class DataBase():
     #     print(cur.fetchall())
 
     def getID(self,tablename,entityname):
-        # c = self.conn.cursor()
+        c = self.conn.cursor()
         #"SELECT * FROM DataShip WHERE Name='Type 054A Jiangkai II [530 Xuzhou]' ORDER BY YearCommissioned desc limit 1;"
         querysql = "SELECT ID FROM {tablename} WHERE Name='{entityname}' ORDER BY YearCommissioned desc limit 1".format(tablename=tablename,entityname=entityname)
         # querysql = "SELECT ID FROM ? WHERE Name='?' ORDER BY YearCommissioned desc limit 1".format(tablename=tablename,entityname=entityname)
-        cursor = self.conn.execute(querysql)
+        cursor = c.execute(querysql)
         for row in cursor:
             id = row['ID']
         return id
@@ -238,12 +235,12 @@ class DataBase():
                                 AND DataMountWeapons.ComponentID = DataWeaponRecord.ID \
                                 AND DataWeaponRecord.ComponentID = DataWeapon.ID\
                             ORDER BY DataWeapon.ID desc limit 1".format(id=id)
-            cursor_Mount = self.conn.execute(querysql_Mount)
+            cursor_Mount = c.execute(querysql_Mount)
 
             for row in cursor_Mount:
                 info1 = row
                 break
-            cursor_Pok = self.conn.execute(querysql_Pok)
+            cursor_Pok = c.execute(querysql_Pok)
 
             for row in cursor_Pok:
                 info2 = row
@@ -304,12 +301,12 @@ class DataBase():
                             AND DataMountWeapons.ComponentID = DataWeaponRecord.ID \
                             AND DataWeaponRecord.ComponentID = DataWeapon.ID\
                         ORDER BY DataWeapon.ID desc limit 1;".format(id=id)
-            cursor_Mount = self.conn.execute(querysql_Mount)
+            cursor_Mount = c.execute(querysql_Mount)
             for row in cursor_Mount:
                 info1 = row
                 break
 
-            cursor_Pok = self.conn.execute(querysql_Pok)
+            cursor_Pok = c.execute(querysql_Pok)
             for row in cursor_Pok:
                 info2 = row
                 break
@@ -338,8 +335,3 @@ class DataBase():
                 info1[label]= 0.0
         return info1
 
-
-if __name__ == '__main__':
-    d = DataBase('F:/716/DB3000_CMANO_CN.db3')
-    i = d.getID("DataAirCraft", "J-20 Mighty Dragon")
-    print(i)

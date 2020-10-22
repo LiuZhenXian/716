@@ -3,4 +3,4 @@
 # @Description : 保存相关配置信息
 
 url_config="http://192.168.31.183:9000/"
-database_path="F:/716/DB3000_CMANO_CN.db3"
+database_path = "../../DB3000_CMANO_CN.db3"

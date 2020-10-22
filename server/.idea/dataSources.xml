@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\sqlite\DB3000_CMANO_CN_1.db3</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="DB3000_CMANO_CN" uuid="266c3244-9495-4621-b2c9-8ba60728da2a">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:E:\Project\716js\server\DB3000_CMANO_CN.db3</jdbc-url>
+    </data-source>
   </component>
 </project>
