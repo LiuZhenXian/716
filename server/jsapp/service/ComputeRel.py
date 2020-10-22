@@ -5,6 +5,7 @@ from math import radians, cos, sin, asin, sqrt
 from geopy.distance import geodesic
 from jsapp.utils import AppConfig
 
+# test
 #根据经纬度计算两点之间的距离 或者使用geodesic
 def distance(lng1,lat1,lng2,lat2):
     lng1, lat1, lng2, lat2 = map(radians, [float(lng1), float(lat1), float(lng2), float(lat2)])  # 经纬度转换成弧度
